@@ -1,6 +1,6 @@
 enum pInfo
 {
-	pAdmin
+    pAdmin
 }
 new PlayerData[MAX_PLAYERS][pInfo];
 
