@@ -7,7 +7,7 @@ new PlayerData[MAX_PLAYERS][pInfo];
 CMD:kick(playerid, params[])
 {
     new targetid;
-    if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, -1, "[SYSTEM]: /kick [playerid]");
+    if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, -1, "[SERVER]: /kick [playerid]");
     if(targetid == INVALID_PLAYER_ID) return SendClientMessage(playerid, -1, "[SERVER]: That player not online/disconnect ");
     if(PlayerData[playerid][pAdmin] > 0) {
         new string[500];
