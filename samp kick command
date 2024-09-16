@@ -1,0 +1,18 @@
+enum pInfo
+{
+	pAdmin
+}
+new PlayerData[MAX_PLAYERS][pInfo];
+
+CMD:kick(playerid, params[])
+{
+    new targetid;
+    if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, -1, "[SYSTEM]: /kick [playerid]");
+    if(targetid == INVALID_PLAYER_ID) return SendClientMessage(playerid, COLOR_WHITE, "[SERVER]: That player not online/disconnect ");
+    if(PlayerData[playerid][pAdmin] > 0) {
+        new string[500];
+	    format(string, sizeof(string), "[SERVER]: %s has kick from server ", GetName(targetid)); SendClientMessageToAll(-1, string);
+	    Kick(targetid);
+	}
+	return 1;
+}
